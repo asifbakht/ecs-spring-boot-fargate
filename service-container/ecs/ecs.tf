@@ -7,7 +7,7 @@ resource "aws_ecs_service" "ecs_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups  = [var.task_definition_sg_group_id]
+    security_groups  = [var.task_definition_sg_group_id, var.db_access_sg_id]
     subnets          = flatten([var.vpc_private_subnets])
     assign_public_ip = false
   }
