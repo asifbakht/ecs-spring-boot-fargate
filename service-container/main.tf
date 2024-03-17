@@ -26,6 +26,7 @@ module "service_ecs" {
   ecs_task_arn                = module.service_task_definition.task_definition_arn
   task_definition_sg_group_id = module.service_security_group.ecs_task_def_secruity_group_id
   app_common_port             = var.app_common_communication_port
+  db_access_sg_id             = var.db_access_sg_id
 }
 
 module "service_logs" {
@@ -55,10 +56,5 @@ module "service_task_definition" {
   fargate_cpu                 = var.fargate_cpu
   fargate_memory              = var.fargate_memory
   app_common_port             = var.app_common_communication_port
-  environment_variables = [
-    {
-      "name" : "CONTAINER_PORT"
-      "value" : "${var.app_container_port}"
-    }
-  ]
+  environment_variables       = var.environment_variables
 }

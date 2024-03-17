@@ -40,3 +40,7 @@ variable "discovery_namespace_arn" {
 variable "app_common_port" {
   description = "common port of microservice in order to communicate with each other"
 }
+
+variable "db_access_sg_id" {
+
+}

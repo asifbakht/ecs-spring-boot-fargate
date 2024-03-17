@@ -61,3 +61,16 @@ variable "discovery_namespace_arn" {
 variable "ecs_task_execution_role_arn" {
   description = "Ecs task execution role"
 }
+
+variable "db_access_sg_id" {
+
+}
+
+variable "environment_variables" {
+  description = "environment variables for ecs container of app"
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
